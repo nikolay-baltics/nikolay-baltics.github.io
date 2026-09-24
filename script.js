@@ -30,6 +30,9 @@ function filterPublications() {
     publication.hidden = !matches;
     if (matches) visible++;
   }
+  for (const group of document.querySelectorAll('.publication-group')) {
+    group.hidden = ![...group.querySelectorAll('.publication')].some(publication => !publication.hidden);
+  }
   document.querySelector('#result-count').textContent = `${visible} ${visible === 1 ? 'publication' : 'publications'}`;
   document.querySelector('.empty-state').hidden = visible > 0;
 }
