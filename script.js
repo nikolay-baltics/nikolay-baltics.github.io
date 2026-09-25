@@ -33,7 +33,10 @@ function filterPublications() {
   for (const group of document.querySelectorAll('.publication-group')) {
     group.hidden = ![...group.querySelectorAll('.publication')].some(publication => !publication.hidden);
   }
-  document.querySelector('#result-count').textContent = `${visible} ${visible === 1 ? 'publication' : 'publications'}`;
+  const ukrainian = document.documentElement.lang === 'uk';
+  const forms = {one: 'публікація', few: 'публікації', many: 'публікацій', other: 'публікації'};
+  const noun = ukrainian ? forms[new Intl.PluralRules('uk').select(visible)] : (visible === 1 ? 'publication' : 'publications');
+  document.querySelector('#result-count').textContent = `${visible} ${noun}`;
   document.querySelector('.empty-state').hidden = visible > 0;
 }
 yearFilter.addEventListener('change', filterPublications);
