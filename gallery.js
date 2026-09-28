@@ -1,6 +1,33 @@
 "use strict";
 (() => {
   const links = [...document.querySelectorAll('[data-gallery-item]')];
+  const strip = document.querySelector('.speaking-gallery');
+  const controls = document.querySelector('.gallery-strip-controls');
+  if (strip && controls && links.length) {
+    const prev = controls.querySelector('[data-gallery-prev]');
+    const next = controls.querySelector('[data-gallery-next]');
+    const count = controls.querySelector('.gallery-strip-count');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    function updateStrip() {
+      const gap = parseFloat(getComputedStyle(strip).columnGap) || 0;
+      const step = links[0].getBoundingClientRect().width + gap;
+      const visible = Math.max(1, Math.round((strip.clientWidth + gap) / step));
+      const first = Math.min(links.length - visible, Math.max(0, Math.round(strip.scrollLeft / step)));
+      count.textContent = `${first + 1}–${Math.min(first + visible, links.length)} / ${links.length}`;
+      prev.disabled = strip.scrollLeft <= 2;
+      next.disabled = strip.scrollLeft >= strip.scrollWidth - strip.clientWidth - 2;
+    }
+    function moveStrip(direction) {
+      const gap = parseFloat(getComputedStyle(strip).columnGap) || 0;
+      strip.scrollBy({left: direction * (strip.clientWidth + gap), behavior: reducedMotion.matches ? 'auto' : 'smooth'});
+    }
+    controls.hidden = false;
+    prev.addEventListener('click', () => moveStrip(-1));
+    next.addEventListener('click', () => moveStrip(1));
+    strip.addEventListener('scroll', updateStrip, {passive:true});
+    window.addEventListener('resize', updateStrip);
+    updateStrip();
+  }
   const dialog = document.querySelector('.photo-viewer');
   if (!dialog || !links.length || typeof dialog.showModal !== 'function') return;
   const photo = dialog.querySelector('.photo-viewer-image');

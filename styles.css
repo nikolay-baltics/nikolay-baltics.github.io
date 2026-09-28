@@ -82,3 +82,17 @@ html[lang="uk"] .pub-meta span{overflow-wrap:anywhere}
 @media(max-width:760px){.speaking-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:32px;padding-top:24px}.gallery-zoom{right:7px;bottom:7px;width:30px;height:30px}.photo-viewer{width:96vw}.photo-viewer-stage{height:calc(68vh + 56px);height:calc(68svh + 56px);padding:0 0 56px}.photo-viewer-image{width:auto;height:auto;max-height:68vh;max-height:68svh}.photo-viewer-prev,.photo-viewer-next{top:auto;bottom:0;transform:none}.photo-viewer-prev{left:calc(50% - 52px)}.photo-viewer-next{right:calc(50% - 52px)}}
 @media(prefers-reduced-motion:reduce){.gallery-item img{transition:none}.gallery-item:hover img{transform:none}}
 @media print{.photo-viewer{display:none}}
+
+/* One manually scrollable row, preserving the existing thumbnail sizes. */
+.speaking-gallery{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:calc((100% - 60px)/4);overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x mandatory;scrollbar-width:thin;scrollbar-color:var(--gold) transparent;padding-bottom:12px}
+.gallery-item{scroll-snap-align:start}
+.gallery-item:focus-visible{outline-offset:-3px}
+.gallery-strip-controls{display:flex;align-items:center;justify-content:flex-end;gap:10px;margin-top:12px}
+.gallery-strip-controls[hidden]{display:none}
+.gallery-strip-count{font-size:13px;letter-spacing:.04em;color:var(--muted);margin-right:4px}
+.gallery-strip-controls button{display:inline-flex;align-items:center;justify-content:center;width:40px;height:36px;padding:0;border:1px solid var(--line);border-radius:4px;background:transparent;color:var(--navy);font:24px/1 Georgia,serif;cursor:pointer}
+.gallery-strip-controls button:hover:not(:disabled){border-color:var(--gold);background:var(--gold)}
+.gallery-strip-controls button:disabled{opacity:.35;cursor:default}
+.gallery-strip-controls button:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+@media(max-width:760px){.speaking-gallery{grid-template-columns:none;grid-auto-columns:calc((100% - 12px)/2)}}
+@media print{.speaking-gallery{grid-auto-flow:row;grid-template-columns:repeat(4,minmax(0,1fr));overflow:visible}.gallery-strip-controls{display:none}}
