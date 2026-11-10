@@ -124,3 +124,18 @@ html[lang="uk"] .pub-meta span{overflow-wrap:anywhere}
 #about .body-copy .intro{font-family:Arial,Helvetica,sans-serif;font-size:1.25rem;font-weight:400;line-height:1.65;color:var(--ink);margin-bottom:24px}
 #about .body-copy p:not(.intro){font-size:1rem;line-height:1.75;margin-bottom:0}
 @media(max-width:760px){#about .body-copy .intro{font-size:1.125rem;margin-bottom:20px}}
+
+/* Bring the portrait into the first mobile screen and compact the introduction. */
+@media(max-width:760px){
+  .hero-inner{min-height:0}
+  .hero-portrait{order:-1;height:clamp(280px,78vw,540px);min-height:0}
+  .hero-portrait img{object-position:center 38%}
+  .hero-portrait figcaption{font-size:10px;padding:24px 12px 8px}
+  .hero-copy{padding:28px 22px 32px}
+  .hero .eyebrow{margin-bottom:16px;line-height:1.6}
+  .hero h1,html[lang="uk"] .hero h1{font-size:clamp(2.75rem,12vw,3.4rem);line-height:1.04}
+  .hero .degree{font-size:13px;line-height:1.55;margin-top:14px}
+  .hero .hero-lead,html[lang="uk"] .hero .hero-lead{font-size:1.125rem;line-height:1.5;margin-top:22px}
+  .hero .hero-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:24px}
+  .hero .hero-action{min-width:0;width:100%;min-height:48px;padding:10px 12px;font-size:13px;line-height:1.4}
+}
