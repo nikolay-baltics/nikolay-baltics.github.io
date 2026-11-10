@@ -39,6 +39,7 @@ function filterPublications() {
   document.querySelector('#result-count').textContent = `${visible} ${noun}`;
   document.querySelector('.empty-state').hidden = visible > 0;
 }
+if (yearFilter && topicFilter) {
 yearFilter.addEventListener('change', filterPublications);
 topicFilter.addEventListener('change', filterPublications);
 document.querySelector('#reset-filters').addEventListener('click', () => {
@@ -46,4 +47,5 @@ document.querySelector('#reset-filters').addEventListener('click', () => {
 });
 document.querySelector('.filters').hidden = false;
 filterPublications();
+}
 document.querySelector('#copyright-year').textContent = new Date().getFullYear();

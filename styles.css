@@ -104,3 +104,17 @@ html[lang="uk"] .pub-meta span{overflow-wrap:anywhere}
 .gallery-strip-controls button:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 @media(max-width:760px){.speaking-gallery{grid-template-columns:none;grid-auto-columns:calc((100% - 12px)/2)}}
 @media print{.speaking-gallery{grid-auto-flow:row;grid-template-columns:repeat(4,minmax(0,1fr));overflow:visible}.gallery-strip-controls{display:none}}
+
+/* Selected work on the homepage; complete catalogue on its own page. */
+.publications-actions{margin-top:30px}
+.publication-page-heading{max-width:850px;margin-bottom:36px}
+.publication-page-heading>.text-link{margin-bottom:30px}
+.publication-page-heading .eyebrow{margin-bottom:14px}
+.publication-page-heading h1{font-size:clamp(2.4rem,5vw,4rem);line-height:1.12}
+.publication-page-heading>p:last-child{margin-top:22px;color:var(--muted);max-width:650px}
+.site-header nav a[aria-current="page"]{border-bottom-color:var(--gold)}
+.pub-meta span{overflow-wrap:normal;word-break:normal;hyphens:none}
+@media(max-width:760px){
+  .publication{grid-template-columns:96px minmax(0,1fr);gap:16px}
+  .pub-meta span,html[lang="uk"] .pub-meta span{font-size:11px;line-height:1.5;white-space:normal;overflow-wrap:normal;word-break:normal;hyphens:none}
+}
