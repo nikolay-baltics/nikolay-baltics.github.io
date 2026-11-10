@@ -11,14 +11,14 @@
     text: 'Дозволити Google Analytics використовувати cookies для статистики відвідувань сайту? Вибір можна змінити внизу сторінки.',
     accept: 'Дозволити', reject: 'Відхилити', settings: 'Налаштування cookies',
     details: 'Докладніше',
-    privacy: 'Після вашої згоди Google отримуватиме дані про переглянуті сторінки, взаємодії, пристрій та приблизне місцезнаходження. Рекламна персоналізація вимкнена. Аналітичні cookies та ваш вибір зберігаються до 180 днів. Відмовитися можна будь-коли через «Налаштування cookies». Запитання: politics.sumdu@gmail.com.',
+    privacy: 'Після вашої згоди Google отримуватиме дані про переглянуті сторінки, взаємодії, пристрій та приблизне місцезнаходження. Рекламна персоналізація вимкнена. Аналітичні cookies та ваш вибір зберігаються до 180 днів. Відмовитися можна будь-коли через «Налаштування cookies». Запитання: m.nazarov@sahasec.org.',
     google: 'Як Google використовує дані'
   } : {
     title: 'Website analytics',
     text: 'Allow Google Analytics cookies to measure visits to this website? You can change your choice at the bottom of any page.',
     accept: 'Allow', reject: 'Decline', settings: 'Cookie settings',
     details: 'Details',
-    privacy: 'With your consent, Google receives data about page views, interactions, your device and approximate location. Advertising personalisation is disabled. Analytics cookies and your choice are stored for up to 180 days. You can withdraw consent at any time using Cookie settings. Questions: politics.sumdu@gmail.com.',
+    privacy: 'With your consent, Google receives data about page views, interactions, your device and approximate location. Advertising personalisation is disabled. Analytics cookies and your choice are stored for up to 180 days. You can withdraw consent at any time using Cookie settings. Questions: m.nazarov@sahasec.org.',
     google: 'How Google uses data'
   };
 
